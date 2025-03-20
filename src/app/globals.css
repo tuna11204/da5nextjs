@@ -1,26 +1,42 @@
 @import "tailwindcss";
+@import "tailwindcss/utilities";
+@import "slick-carousel/slick/slick.css"; 
+@import "slick-carousel/slick/slick-theme.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components{
+  .header_top_icon_wrapper{
+    @apply bg-gray-200 rounded-md p-[6px] text-[14px] cursor-pointer hover:bg-accent 
+    hover:text-white;
+  }
+  .navbar_link:hover{
+    color: #ff8f9c;
+    transition: all 0.4s;
+  }
+  .navbar_link::after{
+    position: absolute;
+    content: "";
+    background-color: #ff8f9c;
+    height: 3px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    scale: 0;
+    transform-origin: left;
+    transition: all 0.4s;
+  }
+  .navbar_link :hover::after{
+    
+    scale: 1;
+    
   }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme{
+    --color-accent: #FF8F9C;
+    --color-blackish: #1b1b1b;
+   
+}
+@layer base{
+  .container{
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
 }
